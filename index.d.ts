@@ -1,15 +1,15 @@
-import { Component, ReactNode, ComponentProps, RefObject } from "react";
-import { Duration, Moment } from "moment";
+import { Component, ReactNode, ComponentProps, RefObject } from 'react';
+import { Duration, Moment } from 'moment';
 import {
   StyleProp,
   ViewStyle,
   TextStyle,
-  GestureResponderEvent
-} from "react-native";
+  GestureResponderEvent,
+} from 'react-native';
 import { RecyclerListView } from 'recyclerlistview';
 
 interface IDaySelectionAnimationBorder {
-  type: "border";
+  type: 'border';
   duration: number;
   borderWidth: number;
   borderHighlightColor: string;
@@ -20,7 +20,7 @@ interface IDaySelectionAnimationBorder {
 }
 
 interface IDaySelectionAnimationBackground {
-  type: "background";
+  type: 'background';
   duration: number;
   highlightColor: string;
   animType?: any;
@@ -75,14 +75,19 @@ interface CalendarStripProps {
   numDaysInWeek?: number;
   scrollable?: boolean;
   scrollerPaging?: boolean;
-  externalScrollView?: ComponentProps<typeof RecyclerListView>['externalScrollView'];
+  externalScrollView?: ComponentProps<
+    typeof RecyclerListView
+  >['externalScrollView'];
   startingDate?: Moment | Date;
   selectedDate?: Moment | Date;
-  onDateSelected?: ((date: Moment) => void);
-  onWeekChanged?: ((start: Moment, end: Moment) => void);
-  onWeekScrollStart?: ((start: Moment, end: Moment) => void);
-  onWeekScrollEnd?: ((start: Moment, end: Moment) => void);
-  onHeaderSelected?: ((dates: {weekStartDate: Moment, weekEndDate: Moment}) => void);
+  onDateSelected?: (date: Moment) => void;
+  onWeekChanged?: (start: Moment, end: Moment) => void;
+  onWeekScrollStart?: (start: Moment, end: Moment) => void;
+  onWeekScrollEnd?: (start: Moment, end: Moment) => void;
+  onHeaderSelected?: (dates: {
+    weekStartDate: Moment;
+    weekEndDate: Moment;
+  }) => void;
   updateWeek?: boolean;
   useIsoWeekday?: boolean;
   minDate?: Moment | Date;
@@ -114,11 +119,11 @@ interface CalendarStripProps {
   calendarHeaderContainerStyle?: StyleProp<ViewStyle>;
   calendarHeaderStyle?: StyleProp<TextStyle>;
   calendarHeaderFormat?: string;
-  calendarHeaderPosition?: "below" | "above";
+  calendarHeaderPosition?: 'below' | 'above';
 
   calendarAnimation?: {
     duration: number;
-    type: "sequence" | "parallel";
+    type: 'sequence' | 'parallel';
   };
   daySelectionAnimation?: TDaySelectionAnimation;
 
@@ -148,6 +153,8 @@ interface CalendarStripProps {
   useNativeDriver?: boolean;
 
   headerText?: string;
+
+  hideArrows?: boolean;
 
   ref?: RefObject<any>;
 }
